@@ -68,7 +68,8 @@
   <div class="form-container">
     <form action="https://formsubmit.co/MarkusVoyages@gmail.com" method="POST" onsubmit="return validateEmails()">
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://votre-site.com/merci.html">
+      <input type="hidden" name="_next" value="merci.html">
+
       
       <label for="destination">Où souhaitez-vous aller ?</label>
       <textarea id="destination" name="destination" rows="3" required></textarea>
@@ -108,6 +109,28 @@
         <label for="petDetailsInput">Quel(s) animal(aux) et combien ?</label>
         <textarea id="petDetailsInput" name="petDetailsInput" placeholder="Exemple : 1 chien, 2 chats" rows="3"></textarea>
       </div>
+
+      <!-- Question sur les documents de voyage -->
+      <label for="documents">Quels documents de voyage possédez-vous ?</label>
+      <textarea id="documents" name="documents" rows="3" required></textarea>
+      <p class="small-text">
+        Indiquez tous les documents de voyage valides (jusqu'à la fin prévue du voyage) dont vous disposez, ainsi que les pays d'émission correspondants. Si vous prévoyez de sortir de l'Europe, indiquez également la date exacte de validité de ces documents, ainsi que si votre carte nationale d'identité est biométrique (si vous en possédez une).<br>
+        Exemples de réponse : <span class="red-text">"Carte d'identité française + passeport français + passeport italien", "Passeport français valide jusqu'au 20/10/2030 + carte d'identité biométrique française valide jusqu'au 20/10/2030", etc.</span>
+      </p>
+
+      <!-- Nouvelle question sur les handicaps -->
+      <label for="handicaps">Avez-vous des handicaps que je devrais prendre en compte ? Si oui, lesquels ?</label>
+      <textarea id="handicaps" name="handicaps" rows="3" placeholder="mobilité réduite, malvoyance, etc."></textarea>
+
+      <label for="transportSubscription">Avez-vous des abonnements de transport ? Si oui, lesquels ?</label>
+        <textarea id="transportSubscription" name="transportSubscription" rows="4" placeholder="Exemple : Carte Avantage SNCF, abonnement TER, carte Navigo, etc."></textarea>
+
+        <!-- Nouvelle question sur la voiture -->
+        <label for="car">Disposez-vous d'une voiture que vous pourriez utiliser pour ce voyage (pour vous rendre à un aéroport, une gare, etc.) ?</label>
+        <select id="car" name="car" required>
+        <option value="Non">Non</option>
+        <option value="Oui">Oui</option>
+        </select>
 
       <!-- Question sur le bus -->
       <label for="bus">Seriez-vous prêt à passer une nuit dans un bus pour économiser de l'argent ?</label>
