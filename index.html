@@ -11,7 +11,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh; /* Utilisation de min-height pour permettre l'expansion */
             margin: 0;
             text-align: center;
             background-color: #f4f4f4;
@@ -77,6 +77,32 @@
         .about-text p {
             font-size: 1em;
         }
+        /* Media Query pour écrans étroits (téléphones) */
+        @media (max-width: 600px) {
+            body {
+                min-height: auto;
+                height: auto;
+                justify-content: flex-start; /* Aligner en haut */
+                padding-top: 20px; /* Un peu d'espace en haut */
+            }
+            .container {
+                margin-top: 20px; /* Ajout d'une marge en haut pour le container */
+            }
+            .about {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .about-text {
+                margin-left: 0;
+                order: 1;
+            }
+            .about img {
+                order: 2;
+                width: 80%;
+                margin: 20px 0 40px 0; /* 20px en haut, 40px en bas */
+            }
+        }
     </style>
 </head>
 <body>
@@ -107,4 +133,3 @@
     </div>
 </body>
 </html>
-
