@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markus Voyage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            background-color: #f4f4f4;
+            position: relative;
+        }
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-family: 'Brush Script MT', cursive;
+            font-size: 1.8em;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.2em;
+            color: #555;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .about {
+            display: flex;
+            align-items: center;
+            margin-top: 50px;
+            text-align: left;
+            width: 80%;
+        }
+        .about img {
+            width: 33%;
+            height: auto;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-left: 5%;
+        }
+        .about-text {
+            margin-left: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .about-text h2 {
+            margin: 0 0 10px 0;
+            font-size: 1.5em;
+        }
+        .about-text p {
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">Markus Voyages</div>
+    <div class="container">
+        <h1>Offrez-vous un voyage abordable</h1>
+        <p>Je vous trouverai l'itinéraire le moins cher pour la destination de vos rêves. <br>
+            (Première recherche 100 % gratuite)</p>
+        <a href="formulaire.html">
+            <button class="button">Commencez</button>
+        </a>
+    </div>
+    <div class="about">
+        <img src="images/egypte.jpg" alt="egypte">
+        <div class="about-text">
+            <h2>Qui suis-je ?</h2>
+            <p>Je suis étudiant en informatique et j'aime voyager. Je me suis rendu dans presque tous les pays d'Europe pendant mes vacances 
+                et les weekends. J'ai ainsi acquis de bons réflexes pour trouver facilement les itinéraires les moins chers possibles afin de 
+                me rendre n'importe où.</p>
+            <h2>Comment ça fonctionne ?</h2>
+            <p>Je vous propose de remplir un formulaire où vous me détaillerez toutes vos préférences, vos dates et les informations nécessaires 
+                pour mes recherches. Je vous recontacterai ensuite dans les plus brefs délais pour vous indiquer l'itinéraire le moins cher en 
+                détail.</p>
+            <p>Je ne ferai aucune réservation pour vous. Je vous indiquerai simplement quels vols, trains ou bus réserver via les sites officiels 
+                des compagnies, ainsi que les démarches à effectuer pour obtenir un éventuel visa, etc. Je vous demanderai seulement 10€ à partir 
+                du deuxième voyage que je vous trouve, si vous êtes satisfait. 😊</p>
+        </div>
+    </div>
+</body>
+</html>
+

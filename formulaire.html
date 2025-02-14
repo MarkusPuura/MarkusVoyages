@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Détaillez votre projet de voyage</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function togglePetDetails() {
+      var petQuestion = document.getElementById('pet');
+      var petDetails = document.getElementById('petDetails');
+      var petDetailsInput = document.getElementById('petDetailsInput');
+      if (petQuestion.value === 'Oui') {
+        petDetails.style.display = 'block';
+        petDetailsInput.required = true;
+      } else {
+        petDetails.style.display = 'none';
+        petDetailsInput.required = false;
+      }
+    }
+
+    function toggleBusDetails() {
+      var busQuestion = document.getElementById('bus');
+      var busDetails = document.getElementById('busDetails');
+      var busDetailsInput = document.getElementById('busDetailsInput');
+      if (busQuestion.value === 'Oui') {
+        busDetails.style.display = 'block';
+        busDetailsInput.required = true;
+      } else {
+        busDetails.style.display = 'none';
+        busDetailsInput.required = false;
+      }
+    }
+
+    function toggleAirportDetails() {
+      var airportQuestion = document.getElementById('airport');
+      var airportDetails = document.getElementById('airportDetails');
+      var airportDetailsInput = document.getElementById('airportDetailsInput');
+      if (airportQuestion.value === 'Oui') {
+        airportDetails.style.display = 'block';
+        airportDetailsInput.required = true;
+      } else {
+        airportDetails.style.display = 'none';
+        airportDetailsInput.required = false;
+      }
+    }
+
+    window.onload = function() {
+      togglePetDetails();
+      toggleBusDetails(); // Masque la section bus si "Non" est sélectionné par défaut
+      toggleAirportDetails(); // Masque la section aéroport si "Non" est sélectionné par défaut
+    }
+
+    function validateEmails() {
+    var email = document.getElementById("email").value;
+    var email2 = document.getElementById("email2").value;
+    if (email !== email2) {
+      alert("Les emails ne correspondent pas !");
+      return false;
+    }
+    return true;
+    }
+
+  </script>
+</head>
+<body>
+  <h1>Détaillez votre projet de voyage</h1>
+  <div class="form-container">
+    <form action="https://formsubmit.co/MarkusVoyages@gmail.com" method="POST" onsubmit="return validateEmails()">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://votre-site.com/merci.html">
+      
+      <label for="destination">Où souhaitez-vous aller ?</label>
+      <textarea id="destination" name="destination" rows="3" required></textarea>
+      <p class="small-text">
+        Ça peut être un lieu très précis ou très vaste. Plus c'est vaste, plus j'aurai de chances de trouver des options pas chères. Si je trouve plusieurs propositions intéressantes, je vous les soumettrai toutes.<br>
+        Exemples de réponses : <span class="red-text">"Rome", "En Bretagne ou en Normandie", "Quelque part où il fait chaud", "Quelque part à l'étranger où les gens parlent bien français ou anglais, où la vie n'est pas chère et avec des montagnes pas trop loin", "Peu importe ! Surprends-moi", etc.</span>
+      </p>
+
+      <label for="departure">D'où partez-vous ?</label>
+      <input type="text" id="departure" name="departure" required>
+      <p class="small-text">
+        Si vous partez depuis une grande ville, merci d'être plus précis.<br>
+        Exemples de réponses : <span class="red-text">"Nice (centre-ville)", "Paris (3e arrondissement)", etc.</span>
+      </p>
+
+      <label for="period">Dans quelle période ?</label>
+      <textarea id="period" name="period" rows="3" required></textarea>
+      <p class="small-text">
+        Décrivez-moi les dates (et l'heure si nécessaire) de votre départ et de votre retour, de la manière la plus détaillée possible.<br>
+        Exemples de réponse : <span class="red-text">"Partir le 5 ou 6 octobre 2025 et revenir le plus tard possible pour être rentré avant le 11 octobre à 21:00", "Départ après le 6 décembre à 17h30, retour dans la journée du 8", "Entre le 5 et le 31 juillet, minimum 10 jours, maximum 15 jours", etc.</span>
+      </p>
+
+      <label for="voyageurs">Combien serez-vous ?</label>
+      <input type="text" id="voyageurs" name="voyageurs" required>
+
+      <label for="agesParticipants">Âges de tout le monde</label>
+      <textarea id="agesParticipants" name="agesParticipants" rows="3" required placeholder="Exemple : 12, 30, 45"></textarea>
+
+      <!-- Question pour l'animal de compagnie -->
+      <label for="pet">Souhaitez-vous prendre avec vous un animal de compagnie ? (pas conseillé)</label>
+      <select id="pet" name="pet" onchange="togglePetDetails()" required>
+        <option value="Non">Non</option>
+        <option value="Oui">Oui</option>
+      </select>
+
+      <div id="petDetails" style="display: none;">
+        <label for="petDetailsInput">Quel(s) animal(aux) et combien ?</label>
+        <textarea id="petDetailsInput" name="petDetailsInput" placeholder="Exemple : 1 chien, 2 chats" rows="3"></textarea>
+      </div>
+
+      <!-- Question sur le bus -->
+      <label for="bus">Seriez-vous prêt à passer une nuit dans un bus pour économiser de l'argent ?</label>
+      <select id="bus" name="bus" onchange="toggleBusDetails()" required>
+        <option value="Non">Non</option>
+        <option value="Oui">Oui</option>
+      </select>
+
+      <div id="busDetails" style="display: none;">
+        <label for="busDetailsInput">Pour économiser, à partir de quelle somme en euros seriez-vous prêt à passer une nuit dans un bus ?</label>
+        <input type="number" id="busDetailsInput" name="busDetailsInput" placeholder="Montant en euros">
+      </div>
+
+      <!-- Question sur l'aéroport -->
+      <label for="airport">Seriez-vous prêt à passer une nuit dans un aéroport pour économiser de l'argent ?</label>
+      <select id="airport" name="airport" onchange="toggleAirportDetails()" required>
+        <option value="Non">Non</option>
+        <option value="Oui">Oui</option>
+      </select>
+
+      <div id="airportDetails" style="display: none;">
+        <label for="airportDetailsInput">Pour économiser, à partir de quelle somme en euros seriez-vous prêt à passer une nuit dans un aéroport ?</label>
+        <input type="number" id="airportDetailsInput" name="airportDetailsInput" placeholder="Montant en euros">
+      </div>
+
+      <!-- Questions supplémentaires -->
+      <label for="insurance">Souhaitez-vous souscrire une assurance pour votre voyage et que je vous explique comment procéder ?</label>
+      <select id="insurance" name="insurance" required>
+        <option value="Non">Non</option>
+        <option value="Oui">Oui</option>
+      </select>
+
+      <label for="accommodation">Souhaitez-vous que je vous aide à trouver un hébergement économique pour votre séjour ?</label>
+      <select id="accommodation" name="accommodation" required>
+        <option value="Non">Non</option>
+        <option value="Oui">Oui</option>
+      </select>
+
+      <label for="flightExplanation">Souhaitez-vous des explications sur la manière de prendre l'avion ? (enregistrement, objets interdits...)</label>
+      <select id="flightExplanation" name="flightExplanation" required>
+        <option value="Non">Non</option>
+        <option value="Oui">Oui</option>
+      </select>
+
+      <label for="europeRecommendation">Si votre destination se trouve en Europe, il y a de fortes chances que je sois déjà passé par cet endroit. Souhaitez-vous que je vous conseille des restaurants, musées, etc., que j'ai appréciés ?</label>
+      <select id="europeRecommendation" name="europeRecommendation" required>
+        <option value="Non">Non</option>
+        <option value="Oui">Oui</option>
+      </select>
+
+      <label for="other">Autre chose à me signaler ?</label>
+      <textarea id="other" name="other" rows="3"></textarea>
+      <p class="small-text">
+        S'il y a d'autres informations que je devrais savoir pour mes recherches, merci de me les indiquer ici.
+      </p>
+      
+      <label for="email">Votre adresse e-mail</label>
+      <input id="email" name="email" type="email" required pattern="^[^@]+@[^@]+\.[^@]+$" title="adresse e-mail non valide">
+
+      <label for="email2">Répétez votre adresse e-mail</label>
+      <input id="email2" name="email2" type="email" required pattern="^[^@]+@[^@]+\.[^@]+$" title="adresse e-mail non valide.">
+
+      <button type="submit">Envoyer</button>
+    </form>
+
+  </div>
+</body>
+</html>
