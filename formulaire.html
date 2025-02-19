@@ -96,6 +96,40 @@
     }
 
 
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.querySelector("form"); // Sélectionne ton formulaire
+      if (!form) return;
+
+      form.addEventListener("submit", function (event) {
+          event.preventDefault(); // Empêche l'envoi immédiat
+
+          // Vérifie que les emails correspondent
+          var email = document.getElementById("email").value;
+          var email2 = document.getElementById("email2").value;
+          if (email !== email2) {
+              alert("Les emails ne correspondent pas !");
+              return false;
+          }
+
+          // Affiche l'overlay de chargement
+          document.getElementById("loadingOverlay").style.display = "flex";
+
+          // Désactive le bouton pour éviter des clics multiples
+          var submitButton = document.querySelector('button[type="submit"]');
+          if (submitButton) {
+              submitButton.disabled = true;
+          }
+
+          // Ajoute un délai court pour que l'affichage ait le temps d'apparaître
+          setTimeout(() => {
+              form.submit();
+          }, 100); 
+      });
+    });
+
+
+
+
 
 
   </script>
