@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Détaillez votre projet de voyage</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Augmente la taille du texte pour les éléments ayant la classe red-text */
+    .red-text {
+      font-size: 1.2em;
+    }
+  </style>
   <script>
     function togglePetDetails() {
       var petQuestion = document.getElementById('pet');
@@ -47,20 +53,19 @@
 
     window.onload = function() {
       togglePetDetails();
-      toggleBusDetails(); // Masque la section bus si "Non" est sélectionné par défaut
-      toggleAirportDetails(); // Masque la section aéroport si "Non" est sélectionné par défaut
+      toggleBusDetails();
+      toggleAirportDetails();
     }
 
     function validateEmails() {
-    var email = document.getElementById("email").value;
-    var email2 = document.getElementById("email2").value;
-    if (email !== email2) {
-      alert("Les emails ne correspondent pas !");
-      return false;
+      var email = document.getElementById("email").value;
+      var email2 = document.getElementById("email2").value;
+      if (email !== email2) {
+        alert("Les emails ne correspondent pas !");
+        return false;
+      }
+      return true;
     }
-    return true;
-    }
-
   </script>
 </head>
 <body>
@@ -70,7 +75,6 @@
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="https://markuspuura.github.io/MarkusVoyages/merci.html">
 
-      
       <label for="destination">Où souhaitez-vous aller ?</label>
       <textarea id="destination" name="destination" rows="3" required></textarea>
       <p class="small-text">
@@ -111,7 +115,7 @@
       </div>
 
       <!-- Question sur les documents de voyage -->
-      <label for="documents">Quels documents de voyage possédez-vous ?</label>
+      <label for="documents">Quels documents de voyage possédez-vous ? (Précisez la nationalité)</label>
       <textarea id="documents" name="documents" rows="3" required></textarea>
       <p class="small-text">
         Indiquez tous les documents de voyage valides dont vous disposez (valables jusqu'à la fin prévue du voyage), ainsi que les pays qui les ont émis. Si vous prévoyez de quitter l'Europe, précisez également leur date exacte de validité et indiquez si votre carte nationale d'identité est biométrique (si vous en possédez une).<br>
@@ -130,14 +134,14 @@
       <textarea id="handicaps" name="handicaps" rows="3" placeholder="mobilité réduite, malvoyance, etc."></textarea>
 
       <label for="transportSubscription">Avez-vous des abonnements de transport ? Si oui, lesquels avez-vous ?</label>
-        <textarea id="transportSubscription" name="transportSubscription" rows="4" placeholder="Exemple : Carte Avantage SNCF, abonnement TER, carte Navigo, etc."></textarea>
+      <textarea id="transportSubscription" name="transportSubscription" rows="4" placeholder="Exemple : Carte Avantage SNCF, abonnement TER, carte Navigo, etc."></textarea>
 
-        <!-- Nouvelle question sur la voiture -->
-        <label for="car">Disposez-vous d'une voiture que vous pourriez utiliser pour ce voyage, par exemple pour vous rendre à un aéroport ou à une gare ?</label>
-        <select id="car" name="car" required>
+      <!-- Nouvelle question sur la voiture -->
+      <label for="car">Disposez-vous d'une voiture que vous pourriez utiliser pour ce voyage, par exemple pour vous rendre à un aéroport ou à une gare ?</label>
+      <select id="car" name="car" required>
         <option value="Non">Non</option>
         <option value="Oui">Oui</option>
-        </select>
+      </select>
 
       <!-- Question sur le bus -->
       <label for="bus">Seriez-vous prêt à passer une nuit dans un bus pour économiser de l'argent ?</label>
@@ -147,7 +151,7 @@
       </select>
 
       <div id="busDetails" style="display: none;">
-        <label for="busDetailsInput">Pour économiser, à partir de quelle somme en euros seriez-vous prêt à passer une nuit dans un bus ?</label>
+        <label for="busDetailsInput">Pour économiser à partir de quelle somme ? (en euros)</label>
         <input type="number" id="busDetailsInput" name="busDetailsInput" placeholder="Montant en euros">
       </div>
 
@@ -159,7 +163,7 @@
       </select>
 
       <div id="airportDetails" style="display: none;">
-        <label for="airportDetailsInput">Pour économiser, à partir de quelle somme en euros seriez-vous prêt à passer une nuit dans un aéroport ?</label>
+        <label for="airportDetailsInput">Pour économiser à partir de quelle somme ? (en euros)</label>
         <input type="number" id="airportDetailsInput" name="airportDetailsInput" placeholder="Montant en euros">
       </div>
 
@@ -202,7 +206,6 @@
 
       <button type="submit">Envoyer</button>
     </form>
-
   </div>
 </body>
 </html>
