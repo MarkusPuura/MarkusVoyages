@@ -78,8 +78,8 @@
           return false;
       }
 
-      // Affiche le message de chargement
-      document.getElementById("loadingMessage").style.display = "block";
+      // Affiche l'overlay de chargement
+      document.getElementById("loadingOverlay").style.display = "flex";
 
       // Désactive le bouton pour éviter des clics multiples
       var submitButton = document.querySelector('button[type="submit"]');
@@ -87,13 +87,14 @@
           submitButton.disabled = true;
       }
 
-      // Ajoute un petit délai pour laisser le DOM mettre à jour l'affichage du message
+      // Ajoute un petit délai pour assurer l'affichage avant l'envoi du formulaire
       setTimeout(() => {
-          event.target.submit(); // Envoie le formulaire après l'affichage du message
+          event.target.submit();
       }, 100); 
 
       return true;
     }
+
 
 
 
@@ -248,9 +249,10 @@
     </form>
   </div>
 
-  <div id="loadingMessage" style="display: none; text-align: center; margin-top: 20px;">
+  <div id="loadingOverlay">
     <p>Chargement en cours... Veuillez patienter.</p>
   </div>
+
 
 
 </body>
