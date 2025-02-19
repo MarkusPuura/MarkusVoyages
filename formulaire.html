@@ -66,6 +66,7 @@
       }
       return true;
     }
+
   </script>
 </head>
 <body>
@@ -204,8 +205,13 @@
       <label for="email2">Répétez votre adresse e-mail</label>
       <input id="email2" name="email2" type="email" required pattern="^[^@]+@[^@]+\.[^@]+$" title="adresse e-mail non valide.">
 
-      <button type="submit">Envoyer</button>
+      <div class="g-recaptcha" data-sitekey="6LdN99sqAAAAACivyi2nwvMy4-7x616tCJ_RJJ8z"></div>
+
+      <button type="submit" class="submit-button">Envoyer</button>
+
+      <input type="hidden" name="_captcha" value="true">
     </form>
   </div>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 </html>

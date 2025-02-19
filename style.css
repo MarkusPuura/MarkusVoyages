@@ -76,3 +76,8 @@ h1 {
     display: none;
     margin-top: 15px;
 }
+
+.submit-button {
+    margin-top: 10px; /* Ajuste la valeur selon tes besoins */
+}
+  
