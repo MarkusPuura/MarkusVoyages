@@ -67,12 +67,42 @@
       return true;
     }
 
+    function handleFormSubmit(form) {
+      // Vérifie que les emails correspondent
+      var email = document.getElementById("email").value;
+      var email2 = document.getElementById("email2").value;
+      if (email !== email2) {
+        alert("Les emails ne correspondent pas !");
+        return false;
+      }
+      
+      // Affiche le message de chargement
+      document.getElementById("loadingMessage").style.display = "block";
+      
+      // Désactive le bouton pour éviter des clics multiples
+      var submitButton = form.querySelector('button[type="submit"]');
+      if (submitButton) {
+        submitButton.disabled = true;
+      }
+      
+      // Laissez le formulaire se soumettre
+      return true;
+    }
+
+
   </script>
 </head>
 <body>
   <h1>Détaillez votre projet de voyage</h1>
+
+  <div id="loadingMessage" style="display: none; text-align: center; margin-top: 20px;">
+    <p>Chargement en cours... Veuillez patienter.</p>
+  </div>
+  
   <div class="form-container">
-    <form action="https://formsubmit.co/MarkusVoyages@gmail.com" method="POST" onsubmit="return validateEmails()">
+    <form action="https://formsubmit.co/MarkusVoyages@gmail.com" method="POST" onsubmit="return handleFormSubmit(this)">
+
+      
 
       <input type="hidden" name="_next" value="https://markuspuura.github.io/MarkusVoyages/merci.html">
 
